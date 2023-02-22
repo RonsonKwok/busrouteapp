@@ -6,7 +6,7 @@ class BusRouteRepositoryException implements Exception {}
 
 class BusRouteRepository {
   final http.Client _httpClient;
-  static const _baseUrl = 'data.etabus.gov.hk/v1/transport/kmb/route/';
+  final _baseUrl = 'data.etabus.gov.hk/v1/transport/kmb/route/';
 
   BusRouteRepository({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
