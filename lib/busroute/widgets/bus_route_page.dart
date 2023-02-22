@@ -38,7 +38,7 @@ class BusRoutePage extends StatelessWidget {
             return Container(
               child: Column(
                 children: [
-                  Text(data.bound, style: TextStyle(color: Colors.black)),
+                  Text(data.route, style: TextStyle(color: Colors.black)),
                   Text(data.origTc, style: TextStyle(color: Colors.black)),
                   Text(data.destTc, style: TextStyle(color: Colors.black)),
                 ],
