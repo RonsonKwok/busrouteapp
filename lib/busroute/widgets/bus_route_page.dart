@@ -21,11 +21,6 @@ class BusRoutePage extends StatelessWidget {
       body: Container(
         child: _ui(usersViewModel),
       ),
-
-      // Column(children: [
-      //   // SizedBox(width: double.infinity, child: MusicSearchBar()),
-      //   // Expanded(child: MusicListView())
-      // ]
     );
   }
 
