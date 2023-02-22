@@ -2,12 +2,16 @@ import 'package:busrouteapp/busroute/models/bus_route.dart';
 import 'package:busrouteapp/busroute/repositories/bus_route_repo.dart';
 import 'package:flutter/material.dart';
 
-class UsersViewModel extends ChangeNotifier {
+class BusRouteViewModel extends ChangeNotifier {
   bool _loading = false;
   List<Data> _busRouteDataModel = [];
 
   bool get loading => _loading;
-  List<Data> get userListModel => _busRouteDataModel;
+  List<Data> get busRouteDataModel => _busRouteDataModel;
+
+  BusRouteViewModel() {
+    getBusRoute();
+  }
 
   setLoading(bool loading) async {
     _loading = loading;
@@ -20,7 +24,9 @@ class UsersViewModel extends ChangeNotifier {
 
   getBusRoute() async {
     setLoading(true);
-    var response = await BusRouteRepository.getBusRouteItems();
-    setBusRouteListModel(response as List<Data>);
+    final busRouteRepo = BusRouteRepository();
+    var response = await busRouteRepo.getBusRouteItems();
+    setBusRouteListModel(response);
+    notifyListeners();
   }
 }
