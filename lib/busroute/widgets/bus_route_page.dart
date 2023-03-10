@@ -28,20 +28,33 @@ class BusRoutePage extends StatelessWidget {
   }
 
   _ui(BusRouteViewModel busRouteViewModel) {
-    if (busRouteViewModel.loading) {
-      return Container();
-    }
     return Expanded(
       child: ListView.separated(
           itemBuilder: (context, index) {
             Data data = busRouteViewModel.busRouteDataModel[index];
             return Container(
-              child: Column(
-                children: [
-                  Text(data.route, style: TextStyle(color: Colors.black)),
-                  Text(data.origTc, style: TextStyle(color: Colors.black)),
-                  Text(data.destTc, style: TextStyle(color: Colors.black)),
-                ],
+              child: ListTile(
+                title: Text(data.route,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 28)),
+                subtitle: Row(children: [
+                  Text("由 "),
+                  Text(data.origTc,
+                      style: TextStyle(
+                          color: Colors.black,
+                          // fontWeight: FontWeight.bold,
+                          fontSize: 18)),
+                  Text(" 往 "),
+                  Text(data.destTc,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20)),
+                ]),
+                // trailing: const Icon(Icons.favorite),
+                // iconColor: Colors.red,
               ),
             );
           },
